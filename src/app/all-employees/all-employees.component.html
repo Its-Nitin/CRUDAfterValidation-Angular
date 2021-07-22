@@ -1,0 +1,29 @@
+<div class="container">
+<br>
+    <table class="table  table-hover">
+    <thead>
+        <th >Id No</th>
+        <th >Name</th>
+        <th >Email</th>
+        <th >Contact No</th>
+        <th >Operations</th>
+    </thead>
+    <tbody *ngFor="let employee of allEmployees">
+        <tr>
+        <td>{{employee.employeeId}}</td>
+        <td>{{employee.employeeName}}</td>
+        <td>{{employee.employeeEmailId}}</td>
+        <td>{{employee.employeePhoneNumber}}</td>
+        <td>
+            <a routerLink = "/updateEmployee/{{employee.employeeId}}" id="a1" class="btn btn-primary btn-sm mr-2">Edit</a>
+            <button (click) = deleteEmployee(employee.employeeId) id="a2" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+</div>
+
+
+

@@ -1,0 +1,38 @@
+<div class="container">
+    <br>
+
+    <h4 >Fill Your Details</h4>
+    <br>
+
+    <form (ngSubmit) = "createForm.form.valid && saveEmployee()" #createForm = "ngForm">
+        <div class="form-group col-sm-6">
+          <label for="EmployeeId">Id</label>
+          <input type="text" [(ngModel)]="employee.employeeId" #empId="ngModel" pattern="[1-9][0-9]{0,5}" class="form-control" id="EmployeeId" name="empId" placeholder="Enter  A unique Id " required="required">
+          <span class="text-danger" *ngIf = "createForm.touched && empId.errors?.required">This field must be filled</span>
+          <span class="text-danger" *ngIf = "createForm.touched && empId.errors?.pattern">invalid format</span>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="EmployeeName">Name</label>
+          <input type="text" [(ngModel)]="employee.employeeName" #empName="ngModel" pattern="[a-zA-Z\s]{3,30}" class="form-control" id="EmployeeName" name="empName" placeholder="Enter Name" required>
+          <span class="text-danger" *ngIf = "createForm.touched && empName.errors?.required">This field must be filled</span>
+          <span class="text-danger" *ngIf = "createForm.touched && empName.errors?.pattern">invalid format</span>
+        </div>
+        
+        <div class="form-group col-sm-6">
+          <label for="EmployeeEmail">Email</label>
+          <input type="text" [(ngModel)]="employee.employeeEmailId" #empEmail="ngModel" pattern="^[a-zA-Z0-9\+\_\.\-]+@[a-zA-Z]+.[a-zA-Z]{2,3}$" class="form-control" id="EmployeeEmail" name="empEmail" placeholder="Enter Email" required>
+          <span class="text-danger" *ngIf = "createForm.touched && empEmail.errors?.pattern">invalid format</span>
+      </div>
+        
+        <div class="form-group col-sm-6">
+          <label for="EmployeePhone">Phone No</label>
+          <input type="text" [(ngModel)]="employee.employeePhoneNumber" #empPhone = "ngModel" pattern="^((\+91)|0?)[6-9]{1}\d{9}$"  class="form-control" id="EmployeePhone" name="empPhone" placeholder="Enter Contact No">
+          <span class="text-danger" *ngIf = "createForm.touched && empPhone.errors?.required">This field must be filled</span>
+          <span class="text-danger" *ngIf = "createForm.touched && empPhone.errors?.pattern">invalid format</span>
+        </div>
+
+        <button type="submit"  id="a1" class=" btn btn-success  mr-2">Add</button>
+        <button type="reset"  class="btn btn-info ">Reset</button>
+    
+      </form>
+</div>
